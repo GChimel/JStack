@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Gustavo",
+      "username": "GChimel",
+      "blocked": false
+    },
+    {
+      "id": "2",
+      "name": "Eduardo",
+      "username": "E23423048",
+      "blocked": false
+    },
+    {
+      "id": "24da",
+      "blocked": true,
+      "name": "Anderson",
+      "username": "GChimel"
+    },
+    {
+      "id": "8e6f",
+      "blocked": false,
+      "name": "anderson",
+      "username": "."
+    }
+  ]
+}
