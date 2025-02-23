@@ -1,7 +1,7 @@
 services:
   api-restaurante-pg:
     image: postgres
-    container_name: estudos
+    container_name: studies
     ports:
       - "5432:5432"
     environment:

@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 
 import { routeAdapter } from "./adapters/routeAdapter";
@@ -10,6 +11,8 @@ import { makeSignUpController } from "../factories/makeSignUpController";
 import { middlewareAdapter } from "./adapters/middlewareAdapter";
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 

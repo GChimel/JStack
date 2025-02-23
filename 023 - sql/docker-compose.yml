@@ -1,0 +1,15 @@
+services:
+  estudos:
+    image: postgres
+    container_name: live023
+    volumes:
+      # Joga os scripts para a pasta scripts dentro do docker
+      - ./scripts:/scripts
+      # Joga o script de criação do banco para o docker e executa
+      - ./scripts/0-create-database.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: pg
