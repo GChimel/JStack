@@ -1,0 +1,10 @@
+services:
+  studies:
+    image: postgres
+    container_name: live031
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: pg
