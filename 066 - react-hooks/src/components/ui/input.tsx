@@ -1,8 +1,25 @@
-import * as React from "react"
+import { cn } from "@/lib/utils";
+import React, { useImperativeHandle } from "react";
 
-import { cn } from "@/lib/utils"
+export type InputRef = {
+  getValue: () => string;
+};
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+interface IInputProps extends Omit<React.ComponentProps<"input">, "ref"> {
+  ref: React.Ref<InputRef>;
+}
+
+function Input({ className, ref, type, ...props }: IInputProps) {
+  useImperativeHandle(
+    ref,
+    () => ({
+      getValue: () => {
+        return "valor do getValue";
+      },
+    }),
+    []
+  );
+
   return (
     <input
       type={type}
@@ -15,7 +32,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Input }
+export { Input };

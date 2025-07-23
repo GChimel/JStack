@@ -15,31 +15,28 @@ type Action =
   | { type: "refreshAge"; payload: { age: number } };
 
 function reducer(prevState: State, action: Action) {
-  if (action.type === "changeUser") {
-    const age = 57;
+  switch (action.type) {
+    case "changeUser":
+      return {
+        isUnderage: false,
+        user: {
+          id: Date.now(),
+          name: "Jhon Doe",
+          age: 57,
+        },
+      };
+    case "refreshAge":
+      return {
+        isUnderage: false,
+        user: {
+          ...prevState.user,
+          age: action.payload.age,
+        },
+      };
 
-    return {
-      isUnderage: age < 18,
-      user: {
-        id: Date.now(),
-        name: "Jhon Doe",
-        age,
-      },
-    };
+    default:
+      return prevState;
   }
-
-  if (action.type === "refreshAge") {
-    const age = action.payload.age;
-    return {
-      isUnderage: age < 18,
-      user: {
-        ...prevState.user,
-        age,
-      },
-    };
-  }
-
-  throw new Error("Invalid action");
 }
 
 export function Reducer() {
